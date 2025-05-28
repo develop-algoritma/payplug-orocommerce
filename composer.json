@@ -4,7 +4,7 @@
     "license": "OSL-3.0",
     "require": {
         "payplug/payplug-php": "^3.5",
-        "oro/commerce": "6.0.*"
+        "oro/commerce": "6.1.*"
     },
     "repositories": {
         "oro": {
@@ -24,7 +24,10 @@
     "prefer-stable": true,
     "config": {
         "allow-plugins": {
-            "phpro/grumphp": true
+            "phpro/grumphp": true,
+            "symfony/runtime": true,
+            "symfony/flex": true,
+            "php-http/discovery": true
         }
     },
     "require-dev": {
