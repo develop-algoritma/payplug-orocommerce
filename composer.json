@@ -1,5 +1,5 @@
 {
-    "name": "payplug/payplug-orocommerce",
+    "name": "algoritma/payplug-orocommerce",
     "description": "Module PayPlug pour OroCommerce",
     "license": "OSL-3.0",
     "require": {
