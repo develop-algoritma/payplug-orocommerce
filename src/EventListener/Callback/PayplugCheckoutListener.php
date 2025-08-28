@@ -64,6 +64,10 @@ class PayplugCheckoutListener
             return;
         }
 
+        if (false === str_contains($paymentTransaction->getPaymentMethod(), PayplugChannelType::TYPE)) {
+            return;
+        }
+
         /** @var Payplug $paymentMethod */
         $paymentMethod = $this->paymentMethodProvider->getPaymentMethod($paymentTransaction->getPaymentMethod());
 
@@ -103,6 +107,10 @@ class PayplugCheckoutListener
         if (!$paymentTransaction) {
             $this->logger->error('No payment transaction found onReturn event');
 
+            return;
+        }
+
+        if (false === str_contains($paymentTransaction->getPaymentMethod(), PayplugChannelType::TYPE)) {
             return;
         }
 
