@@ -8,6 +8,7 @@ use Oro\Bundle\PaymentBundle\Entity\PaymentTransaction;
 use Oro\Bundle\PaymentBundle\Event\AbstractCallbackEvent;
 use Oro\Bundle\PaymentBundle\Method\Provider\PaymentMethodProviderInterface;
 use Payplug\Bundle\PaymentBundle\Constant\PayplugFailureConstant;
+use Payplug\Bundle\PaymentBundle\Integration\PayplugChannelType;
 use Payplug\Bundle\PaymentBundle\Method\Payplug;
 use Payplug\Bundle\PaymentBundle\Service\Logger;
 use Payplug\Bundle\PaymentBundle\Service\RefundManager;
@@ -158,6 +159,10 @@ class PayplugCheckoutListener
         if (!$paymentTransaction) {
             $this->logger->error('No payment transaction found onNotify event');
 
+            return;
+        }
+
+        if (false === str_contains($paymentTransaction->getPaymentMethod(), PayplugChannelType::TYPE)) {
             return;
         }
 
